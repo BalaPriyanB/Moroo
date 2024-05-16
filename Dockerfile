@@ -1,10 +1,11 @@
-FROM ubuntu:latest
+
+FROM alpine:latest
 
 WORKDIR /app
 
-COPY install.sh .
+RUN apk update && apk add --no-cache nano curl
 
-RUN chmod +x install.sh && ./install.sh
+RUN curl https://raw.githubusercontent.com/ajenti/ajenti/1.x/scripts/install.sh | sh -s -
 
 EXPOSE 8000
 
