@@ -5,10 +5,10 @@ FROM alpine:latest
 WORKDIR /app
 
 # Install Ajenti dependencies
-RUN apk update && apk add --no-cache nano curl wget
+RUN apk update && apk add --no-cache nano curl
 
 # Download Ajenti installation script
-RUN wget -O install.sh https://raw.githubusercontent.com/ajenti/ajenti/1.x/scripts/install.sh
+RUN curl -o install.sh https://raw.githubusercontent.com/ajenti/ajenti/1.x/scripts/install.sh
 
 # Set execute permissions for the installation script
 RUN chmod +x install.sh
